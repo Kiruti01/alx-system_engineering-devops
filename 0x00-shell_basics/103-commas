@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1Ap | sed -e 's|/$|,|' -e '1 s|^|./, ../, |' | tr -d '\n' | awk '{print $0}' ORS='\n'
+ls -1Ap | sed -e 's|/$|,|' -e '1 s|^|./, ../, |' | paste -sd ', ' -
