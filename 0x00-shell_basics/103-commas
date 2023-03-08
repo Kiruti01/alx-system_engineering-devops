@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1Ap | sed -e 's|/$|,|' -e '1 s|^|./, ../, |' | paste -sd ', ' - | sed 's|, /|/ |g' 
+ls -1Ap | sed -e 's|/$|, |' -e '1 s|^|./, ../, |' | paste -sd ', ' - | sed 's|, /|/ |g' 
