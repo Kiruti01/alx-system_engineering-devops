@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1ap | grep -v '^\./\.$\|^\./\.\.$' | sed ':a;N;$!ba;s/\n/, /g' | sed 's/,$//g' | sed 's/\(.*\/\)$/\1/g' | tr -s ' ' | sed 's/\s\([^\./]\)/, \1/g' | sed 's/,$/\//' | awk '{printf $0}'
+ls -xamp
