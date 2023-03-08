@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1A | sed -e 's/$/,/' -e 's/^\. /..,/' -e 's/^\.//g' -e 's/\(.*\/\)$/\1,/' | LC_COLLATE=C sort | tr -d '\n' && echo
+ls -1A | sed -e 's/$/,/' -e 's/^\. /..,/' -e 's/^\.//g' -e 's/\(.*\/\)$/\1,/' | LC_COLLATE=C sort | tr -d '\n'
