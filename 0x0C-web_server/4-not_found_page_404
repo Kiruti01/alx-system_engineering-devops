@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Script that installs Nginx server and redirects /redirect_me
+
+# Script that installs Nginx server and configures a custom 404 page
 
 # Update package list
 sudo apt-get -y update
@@ -8,26 +9,24 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 
 # Create directories and files
-sudo mkdir /etc/nginx/html
+sudo mkdir -p /etc/nginx/html
 sudo touch /etc/nginx/html/index.html
-sudo sh -c 'echo "Hello World!" > /etc/nginx/html/index.html'
-sudo touch /etc/nginx/html/404.html
-sudo sh -c "echo 'Ceci n\"est pas une page' > /etc/nginx/html/404.html"
+sudo sh -c "echo "Ceci n\'est pas une page" > /etc/nginx/html/404.html"
 
 # Configure Nginx
 sudo sh -c 'printf %s "server {
-    listen 80;
+    listen 80 default_server;
     listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
+    root /etc/nginx/html;
+    index index.html index.htm;
+    server_name _;
 
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    location / {
+        return 404 /404.html;
     }
 
     error_page 404 /404.html;
     location /404 {
-        root /etc/nginx/html;
         internal;
     }
 }" > /etc/nginx/sites-available/default'
