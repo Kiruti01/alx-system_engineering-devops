@@ -1,54 +1,35 @@
 #!/usr/bin/env bash
-# Displays information about subdomains.
+# Displays informtation about subdomains.
 
-# Uncomment for debugging purposes.
+# uncomment for debugging purposes.
 #set -x
 
-# Colors
+# for the checker to work please remove the colors.
+
+# colors
 blue='\e[1;34m'
 brown='\e[0;33m'
 reset='\033[0m'
 
-# Check for dependencies
-if ! command -v dig &> /dev/null; then
-    echo "Error: 'dig' command not found. Please install it before running this script."
-    exit 1
-fi
+# variables & parameters
+subdomains=( "www" "lb-01" "web-01" "web-02" )
+domain="$1"
+sub="$2"
 
-# Function to display subdomain information
-dig_cmd() {
-    local sub="$1"
-    local domain="$2"
-    
-    local info
-    info="$(dig "$sub.$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')"
-    
-    if [ -n "$info" ]; then
-        local ip record
-        ip=$(echo "$info" | awk '{print $5}')
-        record=$(echo "$info" | awk '{print $4}')
-        echo -e "${brown}The subdomain ${blue}$sub${brown} is a ${blue}$record${brown} record and points to ${blue}$ip${reset}"
-    else
-        echo -e "${brown}No information found for subdomain ${blue}$sub${reset}"
-    fi
+dig_cmd () {
+	# func variables
+	sub="$2"
+	INFO="$(dig "$sub.$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')"
+	IP=$(echo "$INFO" | awk '{print $5}')
+	RECORD=$(echo "$INFO" | awk '{print $4}')
+
+	echo -e "${brown}The subdomain ${blue}$sub${brown} is a ${blue}$RECORD${brown} record and points to ${blue}$IP${reset}"
 }
 
-# Main script
-if [ $# -lt 1 ] || [ $# -gt 2 ]; then
-    echo "Usage: $0 <domain> [subdomain]"
-    exit 1
+if [ $# -eq 1 ]; then
+	for subs in "${subdomains[@]}"; do
+		dig_cmd "$domain" "$subs"
+	done
+elif [ $# -eq 2 ]; then
+	dig_cmd "$domain" "$sub"
 fi
-
-# Allow multiple domains
-for domain in "${@:1:$#-1}"; do
-    if [ $# -eq 1 ]; then
-        # Iterate over predefined subdomains
-        subdomains=("www" "lb-01" "web-01" "web-02")
-        for sub in "${subdomains[@]}"; do
-            dig_cmd "$sub" "$domain"
-        done
-    elif [ $# -eq 2 ]; then
-        # Display information for the specified subdomain
-        dig_cmd "$2" "$domain"
-    fi
-done
