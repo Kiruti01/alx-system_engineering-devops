@@ -1,0 +1,13 @@
+Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+nginx is already the newest version (1.18.0-0ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 53 not upgraded.
+sed: couldn't open temporary file /etc/nginx/sedJR0oPs: Permission denied
+sed: couldn't open temporary file /etc/nginx/sedrnfINw: Permission denied
+./0-nginx_likes_port_80: line 11: /etc/nginx/nginx.conf: Permission denied
