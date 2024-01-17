@@ -1,16 +1,31 @@
 #!/usr/bin/python3
-"""Function to query subscribers on a given Reddit subreddit."""
+'''Module that contains the function number_of_subscribers'''
 import requests
+from sys import argv
 
 
 def number_of_subscribers(subreddit):
-    """Return the total number of subscribers on a given subreddit."""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {
-        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
-    }
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code == 404:
+    '''A function that returns the number of subs for a subreddit'''
+    user_agent = {'User-Agent': 'Bright'}
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+
+    try:
+        response = requests.get(url, headers=user_agent)
+        response.raise_for_status()  # Raise an exception for bad responses
+
+    data = response.json().get('data')
+    subscribers = data.get('subscribers') if data else 0
+
+        return subscribers
+    except requests.RequestException as e:
+        print("Error: {}".format(e))
         return 0
-    results = response.json().get("data")
-    return results.get("subscribers")
+
+    if __name__ == "__main__":
+        if len(argv) == 2:
+            subreddit_name = argv[1]
+            subscribers_count = number_of_subscribers(subreddit_name)
+            print("The subreddit '{}' has {} "
+                    "subscribers.".format(subreddit_name, subscribers_count))
+        else:
+            print("Usage: python script.py <subreddit_name>")
