@@ -3,7 +3,7 @@
 ## Web Stack Debugging Project Outage Resolved
 
 <p align="center">
-![Banner](./image.gif)
+![Alt Text](./15jzai.jpg)
 </p>
 
 #### Summary
