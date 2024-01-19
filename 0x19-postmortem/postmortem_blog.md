@@ -2,9 +2,7 @@
 
 ## Web Stack Debugging Project Outage Resolved
 
-<p align="center">
-<img src="https://files.fm/f/g4ycypqxj3" />
-</p>
+![banner](assets/image.gif)
 
 #### Summary
 
@@ -23,27 +21,23 @@ The root cause of the outage was identified as a misconfiguration in the Apache 
 - **14:40 EAT:** - Confirmed with the team that the project was accessible without errors.
 
 ### Misleading Investigation Paths:
-<p align="center">
-<img src="0x19-postmortem/15jzai.jpg" width=100% height=100% />
-</p>
+![seal](asstes/15jzai.jpg)
+
 Initially explored network-related issues before realizing the problem was specific to the Apache web server configuration.
 Considered database performance issues before identifying the Apache misconfiguration as the primary cause.
 
 ### Escalation:
 The incident was escalated to the DevOps team for collaborative debugging and resolution. The team collaborated in real-time using communication channels to expedite the identification and correction of the issue.
 
-<p align="center">
-<img src="0x19-postmortem/panik-meme-man-prints.jpg" width=100% height=100% />
-</p>
+![panik](assets/panik-meme-man-prints.jpg)
+
 
 
 #### Resolution:
 
 The issue was resolved by correcting the misconfiguration in the Apache virtual host settings and restarting the Apache web server. Manual testing confirmed that the project was accessible without errors, restoring normal functionality.
 
-<p align="flex items-center">
-<img src="0x19-postmortem/ebcf6c19b336695c91f5c10cf52675d6.jpg" width=100% height=100% />
-</p>
+![rob](assets/ebcf6c19b336695c91f5c10cf52675d6.jpg)
 
 ### Corrective and Preventative Measures:
 ###Things to Improve/Fix:
