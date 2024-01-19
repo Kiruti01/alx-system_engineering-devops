@@ -3,7 +3,7 @@
 ## Web Stack Debugging Project Outage Resolved
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/MitaliSengupta/holberton-system_engineering-devops/master/0x19-postmortem/image.gif" width=100% height=100% />
+<img src="0x19-postmortem/image.gif" width=100% height=100% />
 </p>
 
 ### Issue Summary:
@@ -28,7 +28,7 @@ The root cause of the outage was identified as a misconfiguration in the Apache 
 
 ### Misleading Investigation Paths:
 <p align="center">
-<img src="https://raw.githubusercontent.com/MitaliSengupta/holberton-system_engineering-devops/master/0x19-postmortem/image.gif" width=100% height=100% />
+<img src="0x19-postmortem/15jzai.jpg" width=100% height=100% />
 </p>
 Initially explored network-related issues before realizing the problem was specific to the Apache web server configuration.
 Considered database performance issues before identifying the Apache misconfiguration as the primary cause.
@@ -37,7 +37,7 @@ Considered database performance issues before identifying the Apache misconfigur
 The incident was escalated to the DevOps team for collaborative debugging and resolution. The team collaborated in real-time using communication channels to expedite the identification and correction of the issue.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/MitaliSengupta/holberton-system_engineering-devops/master/0x19-postmortem/image.gif" width=100% height=100% />
+<img src="0x19-postmortem/panik-meme-man-prints.jpg" width=100% height=100% />
 </p>
 
 
@@ -46,7 +46,7 @@ The incident was escalated to the DevOps team for collaborative debugging and re
 The issue was resolved by correcting the misconfiguration in the Apache virtual host settings and restarting the Apache web server. Manual testing confirmed that the project was accessible without errors, restoring normal functionality.
 
 <p align="flex items-center">
-<img src="https://raw.githubusercontent.com/MitaliSengupta/holberton-system_engineering-devops/master/0x19-postmortem/image.gif" width=100% height=100% />
+<img src="0x19-postmortem/ebcf6c19b336695c91f5c10cf52675d6.jpg" width=100% height=100% />
 </p>
 
 ### Corrective and Preventative Measures:
