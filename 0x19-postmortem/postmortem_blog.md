@@ -3,12 +3,8 @@
 ## Web Stack Debugging Project Outage Resolved
 
 <p align="center">
-![Banner](image.gif)
+![Banner](./image.gif)
 </p>
-
-### Issue Summary:
-
-(https://github.com/MitaliSengupta/holberton-system_engineering-devops/tree/master/0x17-web_stack_debugging_3)
 
 #### Summary
 
