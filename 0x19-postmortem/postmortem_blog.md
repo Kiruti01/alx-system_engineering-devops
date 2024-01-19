@@ -3,7 +3,7 @@
 ## Web Stack Debugging Project Outage Resolved
 
 <p align="center">
-<img src="0x19-postmortem/image.gif" width=100% height=100% />
+![Banner](image.gif)
 </p>
 
 ### Issue Summary:
